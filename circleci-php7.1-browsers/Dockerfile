@@ -14,6 +14,6 @@ RUN sudo pecl install apcu \
     && sudo  pecl install apcu_bc-1.0.3 \
     && sudo docker-php-ext-enable apcu --ini-name 10-docker-php-ext-apcu.ini \
     && sudo docker-php-ext-enable apc --ini-name 20-docker-php-ext-apc.ini
-
+RUN composer global -q require "hirak/prestissimo:^0.3"
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/bin/sh"]
