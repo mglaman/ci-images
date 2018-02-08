@@ -5,15 +5,15 @@ RUN sudo apt-get update && sudo apt-get install -y \
         libmcrypt-dev \
         libpng12-dev \
         libxml2-dev
-RUN docker-php-ext-install mcrypt pdo_mysql mysqli mbstring opcache soap bcmath
-RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install gd
+RUN sudo docker-php-ext-install mcrypt pdo_mysql mysqli mbstring opcache soap bcmath
+RUN sudo docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && sudo docker-php-ext-install gd
 
 # Install APCu and APC backward compatibility
-RUN pecl install apcu \
-    && pecl install apcu_bc-1.0.3 \
-    && docker-php-ext-enable apcu --ini-name 10-docker-php-ext-apcu.ini \
-    && docker-php-ext-enable apc --ini-name 20-docker-php-ext-apc.ini
+RUN sudo pecl install apcu \
+    && sudo  pecl install apcu_bc-1.0.3 \
+    && sudo docker-php-ext-enable apcu --ini-name 10-docker-php-ext-apcu.ini \
+    && sudo docker-php-ext-enable apc --ini-name 20-docker-php-ext-apc.ini
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/bin/sh"]
