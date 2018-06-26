@@ -3,7 +3,7 @@ RUN sudo apt-get update && sudo apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
-        libpng12-dev \
+        libpng-dev \
         libxml2-dev
 RUN sudo docker-php-ext-install mcrypt pdo_mysql mysqli mbstring opcache soap bcmath
 RUN sudo docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
