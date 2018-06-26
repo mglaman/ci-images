@@ -5,7 +5,7 @@ RUN sudo apt-get update && sudo apt-get install -y \
         libmcrypt-dev \
         libpng-dev \
         libxml2-dev
-RUN sudo docker-php-ext-install mcrypt pdo_mysql mysqli mbstring opcache soap bcmath
+RUN sudo docker-php-ext-install pdo_mysql mysqli mbstring opcache soap bcmath
 RUN sudo docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && sudo docker-php-ext-install gd
 
